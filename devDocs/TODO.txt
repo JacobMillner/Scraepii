@@ -1,0 +1,13 @@
+Milestone 1: 
+
+Take 2 years of historical data per symbol from  watch list and
+Store in db
+https://www.google.com/finance/historical?cid=22144&startdate=Sep%2028%2C%202013&enddate=Sep%2027%2C%202015&num=200&ei=q1cHVpC-L4Wh2AaKsJlA&start=400
+Display it on graph
+
+
+
+
+First ez goal:
+Write out calculations on repo document
+scrape 10 days from input symbol and display in table
