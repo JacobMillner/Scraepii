@@ -1,4 +1,12 @@
 <h1>Home#index</h1>
 
 <H1><%= @title %></H1>
+<p><%= @date %></p>
+<% @historicalData.each do |data| %>
+  <p>
+    <%= data %>
+  </p>
+<% end %>
+
+<p><%= @historicalDates %></p>
 <%= @historicalData.inspect %>
