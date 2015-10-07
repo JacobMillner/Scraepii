@@ -3,11 +3,15 @@ class HomeController < ApplicationController
   
   def index
     mechanize = Mechanize.new
-    page = mechanize.get('https://www.google.com/finance/historical?q=NASDAQ%3AAAPL')
+    
+    page = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=6C0VVrHONMKVmAGtzamwDA&start=400')
+    
     @title = page.title
     @historicalData = page.search('.historical_price')
     @date = @historicalData.at('.bb').children[1].text
     @historicalDates = @historicalData.at('.lm').children[0].text
+    @foo = @historicalData.children[2].children[1].text
+    @count = @historicalData.children.count
     #@date = @date.split(' ')
   end
 end
