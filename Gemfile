@@ -32,6 +32,8 @@ gem 'twitter-bootswatch-rails-helpers'
 #ruby racer!
 gem 'therubyracer'
 
+gem 'mechanize'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
