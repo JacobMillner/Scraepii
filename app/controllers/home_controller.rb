@@ -10,8 +10,19 @@ class HomeController < ApplicationController
     @historicalData = page.search('.historical_price')
     @date = @historicalData.at('.bb').children[1].text
     @historicalDates = @historicalData.at('.lm').children[0].text
-    @foo = @historicalData.children[2].children[1].text
-    @count = @historicalData.children.count
+    @foo = @historicalData.children[2].children[3].text
+    @count = @historicalData.children[2].count
+    @bar = @historicalData.children[2].each {|x| @stuff.push(x.text)}
+    
+   #@historicalData.children[2].each do |td|
+   #       @stuff.push(td.text.strip)
+   #end
+    @stuff = page.search('.historical_price').search('tr').map{ |n| n.text.strip }
+    
+    page.search('#top-results h3').each do |h3|
+      puts h3.text.strip
+    end
+    
     #@date = @date.split(' ')
   end
 end
