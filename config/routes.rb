@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'chris_sandbox/index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

@@ -32,8 +32,8 @@
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
+            <li class="<%= 'active' if params[:controller] == 'home' %>"><%= link_to( "Home", :controller => "home", :action => "index") %></li>
+            <li class="<%= 'active' if params[:controller] == 'chris_sandbox' %>"><%= link_to( "Chris' Sandbox", :controller => "chris_sandbox", :action => "index") %></li>
             <li><a href="#contact">Contact</a></li>
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
