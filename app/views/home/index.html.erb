@@ -3,8 +3,8 @@
     <div class="jumbotron">
       <H3><%= @title %></H3>
       <%= form_tag({:controller=>"home", :action=>"index"}, method: :get) do %>
-      <%= text_field_tag :symbol %>
-      <%= submit_tag 'Search Symbol', name: nil %>
+      <%= text_field_tag :symbol %> 
+      <%= submit_tag 'Search Symbol', name: nil %> <%= evil_icon 'ei-search', size: :m %>
       <% end %>
       <H3><%= @testy %></H3>
       Total Records: <p class="text-primary"><%= @stuff.count %></p>

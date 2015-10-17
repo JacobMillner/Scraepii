@@ -34,6 +34,8 @@ gem 'therubyracer'
 
 gem 'mechanize'
 
+gem 'evil_icons'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

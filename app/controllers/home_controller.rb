@@ -14,7 +14,7 @@ class HomeController < ApplicationController
       page2 = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=200')
       page3 = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=400')
     end
-    @testy = ScrapeLogic.scrapeAll('test')
+    @testy = ScrapeLogic.scrapeAll(params[:symbol])
     @title = page.title
     @historicalData = page.search('.historical_price')
     @date = @historicalData.at('.bb').children[1].text
