@@ -8,11 +8,15 @@ class HomeController < ApplicationController
       page = mechanize.get('https://www.google.com/finance/historical?q='+ params[:symbol] + '&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=0')
       page2 = mechanize.get('https://www.google.com/finance/historical?q='+ params[:symbol] + '&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=200')
       page3 = mechanize.get('https://www.google.com/finance/historical?q='+ params[:symbol] + '&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=400')
+      page4 = mechanize.get('https://www.google.com/finance/historical?q='+ params[:symbol] + '&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=600')
+      page5 = mechanize.get('https://www.google.com/finance/historical?q='+ params[:symbol] + '&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=600')
     else
       #default
       page = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=0')
       page2 = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=200')
       page3 = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=400')
+      page4 = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=600')
+      page5 = mechanize.get('https://www.google.com/finance/historical?cid=22144&startdate=Oct%208%2C%202013&enddate=Oct%207%2C%202015&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=600')
     end
     @testy = ScrapeLogic.scrapeAll(params[:symbol])
     @title = page.title
@@ -29,10 +33,8 @@ class HomeController < ApplicationController
     @stuff = page.search('.historical_price').search('tr').map{ |n| n } #.text.strip }
     @stuff2 = page2.search('.historical_price').search('tr').map{ |n| n } #.text.strip }
     @stuff3 = page2.search('.historical_price').search('tr').map{ |n| n } #.text.strip }
-    @stuff += @stuff2 + @stuff3
-    page.search('#top-results h3').each do |h3|
-      puts h3.text.strip
-    end
+    #@stuff += @stuff2 + @stuff3
+    #@numbers = page3.search('.historical_price').search('tr').map{ |n| n }.count
     
     #@date = @date.split(' ')
   end

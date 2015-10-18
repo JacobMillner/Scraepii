@@ -2,7 +2,7 @@ class ScrapeLogic
   require 'mechanize'
   
   #this method will build a link that spans two years from the current date
-  def buildGoogLink(symbol)
+  def buildGoogLink(symbol, startNum = 0)
     currDate = Time.now
     startYear = (currDate.strftime("%Y").to_i - 2).to_s #take two years off current date... I know this is ugly.
     link = 'https://www.google.com/finance/historical?q='+ symbol + 
@@ -12,17 +12,37 @@ class ScrapeLogic
              '&enddate=' + currDate.strftime('%b') +
              '%20' + currDate.strftime("%d") + 
              '%2C%20' + currDate.strftime("%Y") + 
-             '&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=0'
+             '&num=200&ei=mxkcVpDiI8WFmAHYvqeQAQ&start=' + startNum
     return link
   end
   
+  #pass in a symbol and get 2 years worth of data
   def self.scrapeAll(symbol)
-    sl = ScrapeLogic.new
-    googLink = sl.buildGoogLink(symbol)
     if symbol != nil
-      return googLink
+      mechanize = Mechanize.new
+      sl = ScrapeLogic.new
+
+      startNum = 0
+      googLink = sl.buildGoogLink(symbol)
+      page = mechanize.get(googLink)
+      prices = page.search('.historical_price').search('tr').map{ |n| n }
+      recordCount = prices.count
+      
+      #loop through each page until there are less than 200 records..
+      #this should mean we have reached the last page
+      until recordCount >= 200 do
+        startNum += 200
+        tempGoogLink = sl.buildGoogLink(symbol, startNum)
+        tempPage = mechanize.get(tempGoogLink)
+        tempPrices = tempPage.search('.historical_price').search('tr').map{ |n| n }
+        recordCount = tempPrices.count
+      end
+    
+    return prices
+    
+    #if not given a symbol return false
     else
-      return "Default Symbol"
+      return false 
     end
   end
 end
