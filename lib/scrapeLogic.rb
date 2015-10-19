@@ -5,7 +5,7 @@ class ScrapeLogic
   def buildGoogLink(symbol, startNum = 0)
     currDate = Time.now
     startYear = (currDate.strftime("%Y").to_i - 2).to_s #take two years off current date... I know this is ugly.
-    link = 'https://www.google.com/finance/historical?cid=304466804484872' +
+    link = 'https://www.google.com/finance/historical?' +
              '&q='+ symbol + 
              '&startdate=' + currDate.strftime('%b') +
              '%20' + currDate.strftime("%d") + 
@@ -14,8 +14,7 @@ class ScrapeLogic
              '%20' + currDate.strftime("%d") + 
              '%2C%20' + currDate.strftime("%Y") + 
              '&num=200&start=' + startNum.to_s
-    puts "*************"
-    puts link
+    puts link #lets print out the link for debugging
     return link
   end
   

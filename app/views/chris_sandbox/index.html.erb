@@ -1,2 +1,13 @@
-<h1>ChrisSandbox#index</h1>
-<p>Here be a page for Chris to fuck around in.</p>
+<div class="row">
+  <div class="col-lg-10 col-centered">
+    <div class="jumbotron">
+      <H1>Sandbox</H1>
+      <H3><%= @title %></H3>
+      <%= form_tag({:controller=>"chris_sandbox", :action=>"index"}, method: :get) do %>
+        <%= text_field_tag :symbol %> 
+        <%= submit_tag 'Search Symbol', name: nil %> <%= evil_icon 'ei-search', size: :s %>
+      <% end %>
+      Total Records: <p class="text-primary"><%= @priceData.count %></p>
+    </div>
+  </div>
+</div>

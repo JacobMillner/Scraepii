@@ -23,7 +23,7 @@
           <td>Volume</td>
         </tr>
       </thead>
-      <% @priceData.drop(1).each do |hist| -%>
+      <% @priceData.each do |hist| -%>
        <tr>
           <td><%= hist.children[1].text %></td>
           <td><%= hist.children[2].text %></td>
