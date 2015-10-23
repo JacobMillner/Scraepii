@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Date:</strong>
+  <%= @history_day.date %>
+</p>
+
+<p>
+  <strong>Open:</strong>
+  <%= @history_day.open %>
+</p>
+
+<p>
+  <strong>Close:</strong>
+  <%= @history_day.close %>
+</p>
+
+<p>
+  <strong>High:</strong>
+  <%= @history_day.high %>
+</p>
+
+<p>
+  <strong>Low:</strong>
+  <%= @history_day.low %>
+</p>
+
+<p>
+  <strong>Volume:</strong>
+  <%= @history_day.volume %>
+</p>
+
+<p>
+  <strong>Points:</strong>
+  <%= @history_day.points %>
+</p>
+
+<p>
+  <strong>Weekofyear:</strong>
+  <%= @history_day.weekOfYear %>
+</p>
+
+<%= link_to 'Edit', edit_history_day_path(@history_day) %> |
+<%= link_to 'Back', history_days_path %>
