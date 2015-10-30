@@ -1,5 +1,6 @@
 class StockDataController < ApplicationController
   before_action :set_stock_datum, only: [:show, :edit, :update, :destroy]
+  require 'scrapeLogic'
 
   # GET /stock_data
   # GET /stock_data.json
@@ -25,15 +26,19 @@ class StockDataController < ApplicationController
   # POST /stock_data.json
   def create
     @stock_datum = StockDatum.new(stock_datum_params)
-
-    respond_to do |format|
-      if @stock_datum.save
-        format.html { redirect_to @stock_datum, notice: 'Stock datum was successfully created.' }
-        format.json { render :show, status: :created, location: @stock_datum }
-      else
-        format.html { render :new }
-        format.json { render json: @stock_datum.errors, status: :unprocessable_entity }
+    if ScrapeLogic.checkIfSymbol(params[:symbol])
+      respond_to do |format|
+        if @stock_datum.save
+          format.html { redirect_to @stock_datum, notice: 'Stock datum was successfully created.' }
+          format.json { render :show, status: :created, location: @stock_datum }
+        else
+          format.html { render :new }
+          format.json { render json: @stock_datum.errors, status: :unprocessable_entity }
+        end
       end
+    else
+      flash[:notice] = 'Symbol does not exist.'
+      redirect_to stock_data_path
     end
   end
 

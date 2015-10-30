@@ -7,3 +7,6 @@
 /*
  *= require evil-icons
  */
+body { 
+    padding-top: 65px; 
+}

@@ -18,6 +18,24 @@ class ScrapeLogic
     return link
   end
   
+  #lets check to see if there is any data for this symbol
+  def self.checkIfSymbol(symbol)
+    mechanize = Mechanize.new
+    sl = ScrapeLogic.new
+    check = false
+    
+    if symbol != nil
+      googLink = sl.buildGoogLink(symbol)
+      prices = page.search('.historical_price').search('tr').map{ |n| n }
+      prices = prices.drop(1)
+      if prices.count >= 1
+        check = true
+      end
+    end
+    
+    return check
+  end
+  
   #pass in a symbol and get 2 years worth of data
   def self.scrapeAll(symbol)
     if symbol != nil
@@ -28,6 +46,7 @@ class ScrapeLogic
       googLink = sl.buildGoogLink(symbol)
       page = mechanize.get(googLink)
       prices = page.search('.historical_price').search('tr').map{ |n| n }
+      prices = prices.drop(1)
       recordCount = prices.count
       
       #loop through each page until there are less than 200 records..
@@ -47,6 +66,8 @@ class ScrapeLogic
     else
       return false 
     end
+  
+  
   end
 end
   

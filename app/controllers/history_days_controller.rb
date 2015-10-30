@@ -25,7 +25,7 @@ class HistoryDaysController < ApplicationController
   # POST /history_days.json
   def create
     @history_day = HistoryDay.new(history_day_params)
-
+    @history_day.symbol = @history_day.symbol.upcase
     respond_to do |format|
       if @history_day.save
         format.html { redirect_to @history_day, notice: 'History day was successfully created.' }
