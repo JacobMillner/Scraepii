@@ -19,13 +19,14 @@ class ScrapeLogic
   end
   
   #lets check to see if there is any data for this symbol
-  def self.checkIfSymbol(symbol)
+  def self.isSymbolValid(symbol)
     mechanize = Mechanize.new
     sl = ScrapeLogic.new
     check = false
     
     if symbol != nil
       googLink = sl.buildGoogLink(symbol)
+      page = mechanize.get(googLink)
       prices = page.search('.historical_price').search('tr').map{ |n| n }
       prices = prices.drop(1)
       if prices.count >= 1
@@ -59,6 +60,7 @@ class ScrapeLogic
         prices += tempPrices.drop(1)
         recordCount = tempPrices.count    
       end
+      priceList = prices.each_slice(6)
  
     return prices
     

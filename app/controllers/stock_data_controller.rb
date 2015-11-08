@@ -25,8 +25,9 @@ class StockDataController < ApplicationController
   # POST /stock_data
   # POST /stock_data.json
   def create
+    stockForm = params[:stock_datum]
     @stock_datum = StockDatum.new(stock_datum_params)
-    if ScrapeLogic.checkIfSymbol(params[:symbol])
+    if ScrapeLogic.isSymbolValid(stockForm[:symbol])
       respond_to do |format|
         if @stock_datum.save
           format.html { redirect_to @stock_datum, notice: 'Stock datum was successfully created.' }
@@ -37,7 +38,7 @@ class StockDataController < ApplicationController
         end
       end
     else
-      flash[:notice] = 'Symbol does not exist.'
+      flash[:notice] = 'Symbol' + stockForm[:symbol] + ' does not exist.'
       redirect_to stock_data_path
     end
   end
