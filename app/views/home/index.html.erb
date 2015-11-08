@@ -2,6 +2,7 @@
   <div class="col-lg-10 col-centered">
     <div class="jumbotron">
       <H3><%= @title %></H3>
+      <H3>Scrape All the Data!</H3>
       <%= form_tag({:controller=>"home", :action=>"index"}, method: :get) do %>
         <%= text_field_tag :symbol %> 
         <%= submit_tag 'Search Symbol', name: nil %> <%= evil_icon 'ei-search', size: :s %>
@@ -23,16 +24,15 @@
           <td>Volume</td>
         </tr>
       </thead>
+      
       <% @priceData.each do |hist| -%>
        <tr>
-          <td><%= hist.children[1].text %></td>
-          <td><%= hist.children[2].text %></td>
-          <td><%= hist.children[3].text %></td>
-          <td><%= hist.children[4].text %></td>
-          <td><%= hist.children[5].text %></td>
-          <td><%= hist.children[6].text %></td>
+         <% hist.each do |day| -%>
+           <td><%= day %></td>
+         <% end -%>
         </tr>
       <% end -%>
+      
       </table>
   </div>
       

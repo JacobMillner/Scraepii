@@ -2,7 +2,8 @@ class ScrapeLogic
   require 'mechanize'
   
   #this method will build a link that spans two years from the current date
-  def buildGoogLink(symbol, startNum = 0)
+  #defaults start number at 0 and how many records we show at a time to 200
+  def buildGoogLink(symbol, startNum = 0, numToScrape = 200)
     currDate = Time.now
     startYear = (currDate.strftime("%Y").to_i - 2).to_s #take two years off current date... I know this is ugly.
     link = 'https://www.google.com/finance/historical?' +
@@ -13,7 +14,7 @@ class ScrapeLogic
              '&enddate=' + currDate.strftime('%b') +
              '%20' + currDate.strftime("%d") + 
              '%2C%20' + currDate.strftime("%Y") + 
-             '&num=200&start=' + startNum.to_s
+             '&num=' + numToScrape.to_s + '&start=' + startNum.to_s
     puts link #lets print out the link for debugging
     return link
   end
@@ -60,9 +61,21 @@ class ScrapeLogic
         prices += tempPrices.drop(1)
         recordCount = tempPrices.count    
       end
-      priceList = prices.each_slice(6)
+    #lets split up each day into an array creating a 2d array
+    #This is ugly because of the way the data gets scarped..
+    stockHistory = []
+    prices.each do |data|
+      day = []
+      day.push(data.children[1].text)
+      day.push(data.children[2].text)
+      day.push(data.children[3].text)
+      day.push(data.children[4].text)
+      day.push(data.children[5].text)
+      day.push(data.children[6].text)
+      stockHistory.push(day)
+    end
  
-    return prices
+    return stockHistory
     
     #if not given a symbol return false
     else
