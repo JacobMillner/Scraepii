@@ -19,6 +19,19 @@ class ScrapeLogic
     return link
   end
   
+  #TODO: figure out the best way to deal with blank records
+  def avgIfBlank(text, curIteration, curChild, prices)
+#     puts prices[(curIteration + 1)].children[curChild]
+#     if text == '-' || nil
+#       if prices[(curIteration + 1)].children[curChild].text.strip != '-' || nil
+#         text = ((prices[(curIteration - 1)].children[curChild].text.strip.to_i) + (prices[(curIteration + 1)].children[curChild].text.strip.to_i)) / 2
+#       else
+#         text = prices[(curIteration - 1)].children[curChild].text.strip.to_i
+#       end
+#     end
+    return text
+  end
+  
   #lets check to see if there is any data for this symbol
   def self.isSymbolValid(symbol)
     mechanize = Mechanize.new
@@ -49,7 +62,6 @@ class ScrapeLogic
       prices = page.search('.historical_price').search('tr').map{ |n| n }
       prices = prices.drop(1)
       recordCount = prices.count
-      
       #loop through each page until there are less than 200 records..
       #this should mean we have reached the last page
       until recordCount <= 199 do
@@ -63,15 +75,17 @@ class ScrapeLogic
     #lets split up each day into an array creating a 2d array
     #This is ugly because of the way the data gets scarped..
     stockHistory = []
+    i = 0 #keep track of the iteration so we can access the previous and next records to avg
     prices.each do |data|
       day = []
-      day.push(data.children[1].text)
-      day.push(data.children[2].text)
-      day.push(data.children[3].text)
-      day.push(data.children[4].text)
-      day.push(data.children[5].text)
-      day.push(data.children[6].text)
+      day.push(sl.avgIfBlank(data.children[1].text.strip, i, 1, prices))
+      day.push(sl.avgIfBlank(data.children[2].text.strip, i, 2, prices))
+      day.push(sl.avgIfBlank(data.children[3].text.strip, i, 3, prices))
+      day.push(sl.avgIfBlank(data.children[4].text.strip, i, 4, prices))
+      day.push(sl.avgIfBlank(data.children[5].text.strip, i, 5, prices))
+      day.push(sl.avgIfBlank(data.children[6].text.strip, i, 6, prices))
       stockHistory.push(day)
+      i += 1
     end
     return stockHistory 
     #if not given a symbol return false
