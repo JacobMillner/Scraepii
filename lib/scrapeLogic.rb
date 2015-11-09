@@ -43,7 +43,6 @@ class ScrapeLogic
     if symbol != nil
       mechanize = Mechanize.new
       sl = ScrapeLogic.new
-
       startNum = 0
       googLink = sl.buildGoogLink(symbol)
       page = mechanize.get(googLink)
@@ -74,9 +73,7 @@ class ScrapeLogic
       day.push(data.children[6].text)
       stockHistory.push(day)
     end
- 
-    return stockHistory
-    
+    return stockHistory 
     #if not given a symbol return false
     else
       return false 
