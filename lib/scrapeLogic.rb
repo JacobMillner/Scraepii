@@ -19,19 +19,6 @@ class ScrapeLogic
     return link
   end
   
-  #TODO: figure out the best way to deal with blank records
-  def avgIfBlank(text, curIteration, curChild, prices)
-#     puts prices[(curIteration + 1)].children[curChild]
-#     if text == '-' || nil
-#       if prices[(curIteration + 1)].children[curChild].text.strip != '-' || nil
-#         text = ((prices[(curIteration - 1)].children[curChild].text.strip.to_i) + (prices[(curIteration + 1)].children[curChild].text.strip.to_i)) / 2
-#       else
-#         text = prices[(curIteration - 1)].children[curChild].text.strip.to_i
-#       end
-#     end
-    return text
-  end
-  
   #lets check to see if there is any data for this symbol
   def self.isSymbolValid(symbol)
     mechanize = Mechanize.new
@@ -78,12 +65,12 @@ class ScrapeLogic
     i = 0 #keep track of the iteration so we can access the previous and next records to avg
     prices.each do |data|
       day = []
-      day.push(sl.avgIfBlank(data.children[1].text.strip, i, 1, prices))
-      day.push(sl.avgIfBlank(data.children[2].text.strip, i, 2, prices))
-      day.push(sl.avgIfBlank(data.children[3].text.strip, i, 3, prices))
-      day.push(sl.avgIfBlank(data.children[4].text.strip, i, 4, prices))
-      day.push(sl.avgIfBlank(data.children[5].text.strip, i, 5, prices))
-      day.push(sl.avgIfBlank(data.children[6].text.strip, i, 6, prices))
+      day.push(data.children[1].text.strip)
+      day.push(data.children[2].text.strip)
+      day.push(data.children[3].text.strip)
+      day.push(data.children[4].text.strip)
+      day.push(data.children[5].text.strip)
+      day.push(data.children[6].text.strip)
       stockHistory.push(day)
       i += 1
     end

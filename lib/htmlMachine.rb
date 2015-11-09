@@ -20,6 +20,15 @@ class HtmlMachine
         priceData.each do |hist|
           html += '<tr>'
           hist.each do |day|
+            #switch on the type and turn it into a string
+            case day
+            when DateTime
+              day = day.strftime('%x')
+            when Float
+              day = day.to_s
+            when Integer
+              day = day.to_s
+            end
             html += '<td>' + day + '</td>'
           end
           html += '</tr>'
