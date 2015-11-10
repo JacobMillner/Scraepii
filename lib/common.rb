@@ -1,15 +1,46 @@
 class Common
   #prep all the data, changing strings into dts, ints, etc...
   def self.prepDataForDatabase(priceData)
+    common = Common.new
     priceData.each do |day|
       day[0] = day[0].to_datetime
-      day[1] = day[1].to_f
-      day[2] = day[2].to_f
-      day[3] = day[3].to_f
-      day[4] = day[4].to_f
-      #having problems with the volume
-      #day[5] = day[5].to_i
+      if common.is_number?(day[1])
+        day[1] = day[1].to_f
+      else
+        day[1] = 0
+      end
+      if common.is_number?(day[2])
+        day[2] = day[2].to_f
+      else
+        day[2] = 0
+      end
+      if common.is_number?(day[3])
+        day[3] = day[3].to_f
+      else
+        day[3] = 0
+      end
+      if common.is_number?(day[4])
+        day[4] = day[4].to_f
+      else
+        day[4] = 0
+      end
+        #having problems with the volume
+      if common.is_number?(common.safeTo_i(day[5])) 
+        day[5] = common.safeTo_i(day[5])
+      else
+        day[5] = 0
+      end
     end
     return priceData
+  end
+  
+  #strips the commas out of a string and does .to_i
+  def safeTo_i(num)
+    num.gsub!(',','') if num.is_a?(String)
+    return num.to_i
+  end
+  
+  def is_number? string
+    true if Float(string) rescue false
   end
 end
