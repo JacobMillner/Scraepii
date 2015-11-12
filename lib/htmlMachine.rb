@@ -2,7 +2,7 @@
 class HtmlMachine
   
   #TODO: make this less ugly
-  def self.genTable(priceData)
+  def self.genBasicTable(priceData)
     html = ''
     if priceData != nil
       html = '<div class="col-lg-8 col-centered well well-xs">

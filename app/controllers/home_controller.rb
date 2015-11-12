@@ -11,12 +11,12 @@ class HomeController < ApplicationController
       @title = page.title
       @priceData = ScrapeLogic.scrapeAll(params[:symbol])
       @priceData = Common.prepDataForDatabase(@priceData)
-      @table = HtmlMachine.genTable(@priceData)
+      @table = HtmlMachine.genBasicTable(@priceData)
     else
       #default
       @title = "Please Input A Symbol"
       @priceData = []
-      @table = HtmlMachine.genTable(@priceData)
+      @table = HtmlMachine.genBasicTable(@priceData)
     end 
   end
 end
