@@ -15,6 +15,7 @@ class HtmlMachine
                       <td>Low</td>
                       <td>Close</td>
                       <td>Volume</td>
+                      <td>Week of Year</td>
                     </tr>
                   </thead>'
         priceData.each do |hist|
