@@ -3,6 +3,7 @@ class Common
   def self.prepDataForDatabase(priceData)
     common = Common.new
     
+    count = 0
     priceData.each do |day|
       #Start By Converting all the strings to correct type
       day[0] = day[0].to_datetime
@@ -31,16 +32,28 @@ class Common
       else
         day[5] = 0
       end
-      day[6] = day[0].strftime("%U").to_i
+      
       #figure out what week of the year each record is
+      day[6] = day[0].strftime("%U").to_i
       
       #calculate ups and down
+      #if common.hasComparableDay?
+          #day[7] = priceData[count-1][4].to_f
+      #end
+      
+      count = count + 1
     end
     return priceData
   end
   
-  def findDayOfYear()
-  end
+  #checks to see if there is a previous close to compare current close to
+  #def hasComparableDay?(priceData, count)
+    #if count >= 1 && priceData[count-1] != nil && priceData[count-1][4]
+      #return true
+    #else
+      #return false
+   # end
+  #end
   
   #strips the commas out of a string and does .to_i
   def safeTo_i(num)
