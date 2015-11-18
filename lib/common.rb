@@ -6,54 +6,50 @@ class Common
     count = 0
     priceData.each do |day|
       #Start By Converting all the strings to correct type
-      day[0] = day[0].to_datetime
-      if common.is_number?(day[1])
-        day[1] = day[1].to_f
+      day.date = day.date.to_datetime
+      #day[0] = day[0].to_datetime
+      if common.is_number?(day.open)
+        day.open = day.open.to_f
       else
-        day[1] = 0
+        day.open = 0
       end
-      if common.is_number?(day[2])
-        day[2] = day[2].to_f
+      if common.is_number?(day.high)
+        day.high = day.high.to_f
       else
-        day[2] = 0
+        day.high = 0
       end
-      if common.is_number?(day[3])
-        day[3] = day[3].to_f
+      if common.is_number?(day.low)
+        day.low = day.low.to_f
       else
-        day[3] = 0
+        day.low = 0
       end
-      if common.is_number?(day[4])
-        day[4] = day[4].to_f
+      if common.is_number?(day.close)
+        day.close = day.close.to_f
       else
-        day[4] = 0
+        day.close = 0
       end
-      if common.is_number?(common.safeTo_i(day[5])) 
-        day[5] = common.safeTo_i(day[5])
+      if common.is_number?(common.safeTo_i(day.volume)) 
+        day.volume = common.safeTo_i(day.volume)
       else
-        day[5] = 0
+        day.volume = 0
       end
-      
       #figure out what week of the year each record is
-      day[6] = day[0].strftime("%U").to_i
-      
+      day.weekOfYear = day.date.strftime("%U").to_i
       #calculate ups and down
-      #if common.hasComparableDay?
-          #day[7] = priceData[count-1][4].to_f
-      #end
-      
+      if priceData[count+1] != nil
+        day.points = (day.close.to_f - priceData[count+1].close.to_f)
+      else
+        day.points = 0
+      end
+      if day.points < 0
+        day.up = false
+      else
+        day.up = true
+      end
       count = count + 1
     end
     return priceData
   end
-  
-  #checks to see if there is a previous close to compare current close to
-  #def hasComparableDay?(priceData, count)
-    #if count >= 1 && priceData[count-1] != nil && priceData[count-1][4]
-      #return true
-    #else
-      #return false
-   # end
-  #end
   
   #strips the commas out of a string and does .to_i
   def safeTo_i(num)

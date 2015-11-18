@@ -1,7 +1,6 @@
 #put all our html generators here
 class HtmlMachine
   
-  #TODO: make this less ugly
   def self.genBasicTable(priceData)
     html = ''
     if priceData != nil
@@ -16,23 +15,24 @@ class HtmlMachine
                       <td>Close</td>
                       <td>Volume</td>
                       <td>Week of Year</td>
+                      <td>Points</td>
                     </tr>
                   </thead>'
-        priceData.each do |hist|
-          html += '<tr>'
-          hist.each do |day|
-            #switch on the type and turn it into a string
-            case day
-            when DateTime
-              day = day.strftime('%x')
-            when Float
-              day = day.to_s
-            when Integer
-              day = day.to_s
-            end
-            html += '<td>' + day + '</td>'
+        priceData.each do |day|
+          if day.up
+            html += '<tr class="success">'
+          else
+            html += '<tr class="danger">'
           end
-          html += '</tr>'
+            html += '<td>' + day.date.strftime('%x') + '</td>'
+            html += '<td>' + day.open.to_s + '</td>'
+            html += '<td>' + day.high.to_s + '</td>'
+            html += '<td>' + day.low.to_s + '</td>'
+            html += '<td>' + day.close.to_s + '</td>'
+            html += '<td>' + day.volume.to_s + '</td>'
+            html += '<td>' + day.weekOfYear.to_s + '</td>'
+            html += '<td>' + day.points.to_s + '</td>'
+            html += '</tr>'
         end
         html += '</table></div>'
     end
