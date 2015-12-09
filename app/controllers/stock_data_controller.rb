@@ -7,7 +7,7 @@ class StockDataController < ApplicationController
   def index
     @stock_data = StockDatum.all
   end
-
+  
   # GET /stock_data/1
   # GET /stock_data/1.json
   def show
@@ -57,6 +57,7 @@ class StockDataController < ApplicationController
     end
   end
 
+
   # DELETE /stock_data/1
   # DELETE /stock_data/1.json
   def destroy
@@ -70,7 +71,7 @@ class StockDataController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_stock_datum
-      @stock_datum = StockDatum.find(params[:id])
+        @stock_datum = StockDatum.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
