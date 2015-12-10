@@ -14,7 +14,7 @@
     <% @stock_data.each do |stock_datum| %>
       <tr>
         <td><%= stock_datum.symbol %></td>
-        <td><%= link_to 'Sync', :controller => 'sync', :action => 'syncSymbol' %> <%= evil_icon 'ei-refresh', size: :s %> </td>
+        <td><%= link_to 'Sync', :controller => 'sync', :action => 'syncSymbol', :symbol => stock_datum %> <%= evil_icon 'ei-refresh', size: :s %> </td>
         <td><%= link_to 'Show', stock_datum %></td>
         <td><%= link_to 'Edit', edit_stock_datum_path(stock_datum) %></td>
         <td><%= link_to 'Destroy', stock_datum, method: :delete, data: { confirm: 'Are you sure?' } %></td>
