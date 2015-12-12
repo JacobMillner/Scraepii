@@ -7,7 +7,6 @@ class Common
     priceData.each do |day|
       #Start By Converting all the strings to correct type
       day.date = day.date.to_datetime
-      #day[0] = day[0].to_datetime
       if common.is_number?(day.open)
         day.open = day.open.to_f
       else

@@ -61,6 +61,7 @@ class StockDataController < ApplicationController
   # DELETE /stock_data/1
   # DELETE /stock_data/1.json
   def destroy
+    @stock_datum.history_day.destroy_all
     @stock_datum.destroy
     respond_to do |format|
       format.html { redirect_to stock_data_url, notice: 'Stock datum was successfully destroyed.' }
