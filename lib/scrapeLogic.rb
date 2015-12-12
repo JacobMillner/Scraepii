@@ -40,12 +40,17 @@ class ScrapeLogic
   end
   
   #pass in a symbol and get 2 years worth of data
-  def self.scrapeAll(symbol)
+  #or also pass in how many days to scrape
+  def self.scrapeAll(symbol, daysSinceSync = 0)
     if symbol != nil
       mechanize = Mechanize.new
       sl = ScrapeLogic.new
       startNum = 0
-      googLink = sl.buildGoogLink(symbol)
+      if daysSinceSync == 0
+        googLink = sl.buildGoogLink(symbol)
+      else
+        googLink = sl.buildGoogLink(symbol,0,daysSinceSync)
+      end
       page = mechanize.get(googLink)
       prices = page.search('.historical_price').search('tr').map{ |n| n }
       prices = prices.drop(1)

@@ -19,11 +19,12 @@ class HtmlMachine
                     </tr>
                   </thead>'
         priceData.each do |day|
-          if day.up
-            html += '<tr class="success">'
-          else
-            html += '<tr class="danger">'
-          end
+          #TODO: add this to db table
+          #if day.up
+            #html += '<tr class="success">'
+          #else
+            #html += '<tr class="danger">'
+          #end
             html += '<td>' + day.date.strftime('%x') + '</td>'
             html += '<td>' + day.open.to_s + '</td>'
             html += '<td>' + day.high.to_s + '</td>'

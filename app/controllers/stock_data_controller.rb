@@ -1,6 +1,7 @@
 class StockDataController < ApplicationController
   before_action :set_stock_datum, only: [:show, :edit, :update, :destroy]
   require 'scrapeLogic'
+  require 'htmlMachine'
 
   # GET /stock_data
   # GET /stock_data.json
@@ -11,6 +12,8 @@ class StockDataController < ApplicationController
   # GET /stock_data/1
   # GET /stock_data/1.json
   def show
+    @priceData = @stock_datum.history_day.all
+    @table = HtmlMachine.genBasicTable(@priceData)
   end
 
   # GET /stock_data/new
