@@ -26,3 +26,12 @@
 <br>
 
 <%= link_to 'New Stock datum', new_stock_datum_path %>
+<p>
+<div class="row">
+  <div class="col-sm-4">
+    <%= form_tag(stock_data_path) do %>
+      <%= text_area_tag :multi_symbols %>
+      <%= submit_tag 'Add from List', name: nil, class: "btn btn-default" %>
+    <% end %>
+  </div>
+</div>

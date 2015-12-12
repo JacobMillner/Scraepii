@@ -28,20 +28,27 @@ class StockDataController < ApplicationController
   # POST /stock_data
   # POST /stock_data.json
   def create
-    stockForm = params[:stock_datum]
-    @stock_datum = StockDatum.new(stock_datum_params)
-    if ScrapeLogic.isSymbolValid(stockForm[:symbol])
-      respond_to do |format|
-        if @stock_datum.save
-          format.html { redirect_to @stock_datum, notice: 'Stock datum was successfully created.' }
-          format.json { render :show, status: :created, location: @stock_datum }
-        else
-          format.html { render :new }
-          format.json { render json: @stock_datum.errors, status: :unprocessable_entity }
+    if params[:stock_datum].present?
+      stockForm = params[:stock_datum]
+      @stock_datum = StockDatum.new(stock_datum_params)
+      if ScrapeLogic.isSymbolValid(stockForm[:symbol])
+        respond_to do |format|
+          if @stock_datum.save
+            format.html { redirect_to @stock_datum, notice: 'Stock datum was successfully created.' }
+            format.json { render :show, status: :created, location: @stock_datum }
+          else
+            format.html { render :new }
+            format.json { render json: @stock_datum.errors, status: :unprocessable_entity }
+          end
         end
+      else
+        flash[:notice] = 'Symbol' + stockForm[:symbol] + ' does not exist.'
+        redirect_to stock_data_path
       end
-    else
-      flash[:notice] = 'Symbol' + stockForm[:symbol] + ' does not exist.'
+    end
+    if params[:multi_symbols].present?
+      flash[:notice] = 'test'
+      #TODO: validate and seperate symbols then add
       redirect_to stock_data_path
     end
   end
@@ -81,5 +88,9 @@ class StockDataController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def stock_datum_params
       params.require(:stock_datum).permit(:symbol)
+    end
+    
+    def multi_stock_datum_params
+      params.require(:multi_stock_datum)
     end
 end
