@@ -28,26 +28,42 @@ class StockDataController < ApplicationController
   # POST /stock_data
   # POST /stock_data.json
   def create
+    #add single
     if params[:stock_datum].present?
       stockForm = params[:stock_datum]
-      @stock_datum = StockDatum.new(stock_datum_params)
       if ScrapeLogic.isSymbolValid(stockForm[:symbol])
-        respond_to do |format|
-          if @stock_datum.save
-            format.html { redirect_to @stock_datum, notice: 'Stock datum was successfully created.' }
-            format.json { render :show, status: :created, location: @stock_datum }
-          else
-            format.html { render :new }
-            format.json { render json: @stock_datum.errors, status: :unprocessable_entity }
+        if !StockDatum.where(:symbol => stockForm[:symbol]).present?
+          @stock_datum = StockDatum.new(stock_datum_params)
+          respond_to do |format|
+            if @stock_datum.save
+              format.html { redirect_to @stock_datum, notice: 'Stock datum was successfully created.' }
+              format.json { render :show, status: :created, location: @stock_datum }
+            else
+              format.html { render :new }
+              format.json { render json: @stock_datum.errors, status: :unprocessable_entity }
+            end
           end
+        else
+          flash[:notice] = 'Symbol' + stockForm[:symbol] + ' is already in the database!'
         end
       else
         flash[:notice] = 'Symbol' + stockForm[:symbol] + ' does not exist.'
         redirect_to stock_data_path
       end
     end
+    #multi-add
     if params[:multi_symbols].present?
-      flash[:notice] = 'test'
+      symbols = params[:multi_symbols].split(/\W+/)
+      if symbols.count > 0
+        symbolsAdded = []
+        symbols.each do |symbol|
+          symbol.upcase!
+          if ScrapeLogic.isSymbolValid(symbol)
+            symbolsAdded.push(symbol)
+            flash[:notice] = symbol
+          end
+        end
+      end
       #TODO: validate and seperate symbols then add
       redirect_to stock_data_path
     end
