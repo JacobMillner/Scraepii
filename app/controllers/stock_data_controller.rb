@@ -59,12 +59,14 @@ class StockDataController < ApplicationController
         symbols.each do |symbol|
           symbol.upcase!
           if ScrapeLogic.isSymbolValid(symbol)
+	    newSymbol =  StockDatum.new
+	    newSymbol.symbol = symbol
+	    newSymbol.save
             symbolsAdded.push(symbol)
-            flash[:notice] = symbol
           end
-        end
+        end			
+      	flash[:notice] = 'Valid Symbols added: ' + symbolsAdded.join(" ")
       end
-      #TODO: validate and seperate symbols then add
       redirect_to stock_data_path
     end
   end
