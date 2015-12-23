@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :stock_data
   get 'chris_sandbox/index'
   get 'sync/syncSymbol'
+  get 'sync/syncAll'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

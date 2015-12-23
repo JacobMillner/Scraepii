@@ -1,7 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Stock Data</h1>
-
+  <td><%= link_to 'Sync All', :controller => 'sync', :action => 'syncAll' %> <%= evil_icon 'ei-refresh', size: :s %> </td>
 <table>
   <thead>
     <tr>
