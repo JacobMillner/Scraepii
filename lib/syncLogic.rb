@@ -23,6 +23,7 @@ class SyncLogic
           newDay.volume = day.volume
           newDay.points = day.points
           newDay.weekOfYear = day.weekOfYear
+	  newDay.up = day.up
           newDay.stock_datum_id = symbolId
           newDay.save
         end
@@ -45,6 +46,7 @@ class SyncLogic
             newDay.volume = day.volume
             newDay.points = day.points
             newDay.weekOfYear = day.weekOfYear
+	    newDay.up = day.up
             newDay.stock_datum_id = symbolId
             newDay.save
             daysAdded += 1
