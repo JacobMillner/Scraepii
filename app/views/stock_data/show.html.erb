@@ -4,10 +4,16 @@
   <strong>Symbol:</strong>
   <%= @stock_datum.symbol %>
 </p>
-
 <%= link_to 'Edit', edit_stock_datum_path(@stock_datum) %> |
 <%= link_to 'Sync', stock_data_path %><%= evil_icon 'ei-refresh', size: :s %> |
 <%= link_to 'Back', stock_data_path %>
+
+<div class="row">
+  <p>
+    Close
+  </p>
+  <%= line_chart @close %>
+</div>
 
 <div class="row">
   <%= raw @table %>

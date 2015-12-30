@@ -13,6 +13,10 @@ class StockDataController < ApplicationController
   # GET /stock_data/1.json
   def show
     @priceData = @stock_datum.history_day.all
+    @close = []
+    @priceData.first(100).each do |x|
+      @close.push([x.date.to_s , x.close])
+    end
     @table = HtmlMachine.genBasicTable(@priceData)
   end
 
