@@ -1,0 +1,45 @@
+<%= form_for(@day_trend) do |f| %>
+  <% if @day_trend.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@day_trend.errors.count, "error") %> prohibited this day_trend from being saved:</h2>
+
+      <ul>
+      <% @day_trend.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :type %><br>
+    <%= f.number_field :type %>
+  </div>
+  <div class="field">
+    <%= f.label :percent %><br>
+    <%= f.text_field :percent %>
+  </div>
+  <div class="field">
+    <%= f.label :count %><br>
+    <%= f.number_field :count %>
+  </div>
+  <div class="field">
+    <%= f.label :startDate %><br>
+    <%= f.datetime_select :startDate %>
+  </div>
+  <div class="field">
+    <%= f.label :endDate %><br>
+    <%= f.datetime_select :endDate %>
+  </div>
+  <div class="field">
+    <%= f.label :symbolID %><br>
+    <%= f.number_field :symbolID %>
+  </div>
+  <div class="field">
+    <%= f.label :dayID %><br>
+    <%= f.number_field :dayID %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

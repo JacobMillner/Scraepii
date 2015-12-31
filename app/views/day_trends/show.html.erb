@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @day_trend.type %>
+</p>
+
+<p>
+  <strong>Percent:</strong>
+  <%= @day_trend.percent %>
+</p>
+
+<p>
+  <strong>Count:</strong>
+  <%= @day_trend.count %>
+</p>
+
+<p>
+  <strong>Startdate:</strong>
+  <%= @day_trend.startDate %>
+</p>
+
+<p>
+  <strong>Enddate:</strong>
+  <%= @day_trend.endDate %>
+</p>
+
+<p>
+  <strong>Symbolid:</strong>
+  <%= @day_trend.symbolID %>
+</p>
+
+<p>
+  <strong>Dayid:</strong>
+  <%= @day_trend.dayID %>
+</p>
+
+<%= link_to 'Edit', edit_day_trend_path(@day_trend) %> |
+<%= link_to 'Back', day_trends_path %>

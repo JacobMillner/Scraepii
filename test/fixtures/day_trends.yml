@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  type: 1
+  percent: 9.99
+  count: 1
+  startDate: 2015-12-31 00:21:10
+  endDate: 2015-12-31 00:21:10
+  symbolID: 1
+  dayID: 1
+
+two:
+  type: 1
+  percent: 9.99
+  count: 1
+  startDate: 2015-12-31 00:21:10
+  endDate: 2015-12-31 00:21:10
+  symbolID: 1
+  dayID: 1

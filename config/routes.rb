@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :day_trends
   resources :history_days
   resources :stock_data
   get 'chris_sandbox/index'

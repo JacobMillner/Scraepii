@@ -9,7 +9,7 @@
 <%= link_to 'Back', stock_data_path %>
 
 <div class="row">
-  <%= line_chart @close2, :id => "stats", :library => { hAxis: {title: "Date"}, vAxis: {title: "Price"}, title: "Recent Market Prices" }, :min => @graphMin, :max => @graphMax %>
+  <%= line_chart  @close2, :id => "stats", :library => { hAxis: {title: "Date"}, vAxis: {title: "Price"}, title: "Recent Market Prices", :colors => ["red"] }, :min => @graphMin, :max => @graphMax %>
 </div>
 
 <div class="row">

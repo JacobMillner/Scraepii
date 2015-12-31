@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Day Trends</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Type</th>
+      <th>Percent</th>
+      <th>Count</th>
+      <th>Startdate</th>
+      <th>Enddate</th>
+      <th>Symbolid</th>
+      <th>Dayid</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @day_trends.each do |day_trend| %>
+      <tr>
+        <td><%= day_trend.type %></td>
+        <td><%= day_trend.percent %></td>
+        <td><%= day_trend.count %></td>
+        <td><%= day_trend.startDate %></td>
+        <td><%= day_trend.endDate %></td>
+        <td><%= day_trend.symbolID %></td>
+        <td><%= day_trend.dayID %></td>
+        <td><%= link_to 'Show', day_trend %></td>
+        <td><%= link_to 'Edit', edit_day_trend_path(day_trend) %></td>
+        <td><%= link_to 'Destroy', day_trend, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Day trend', new_day_trend_path %>

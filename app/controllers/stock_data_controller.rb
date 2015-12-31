@@ -13,6 +13,7 @@ class StockDataController < ApplicationController
   # GET /stock_data/1.json
   def show
     @priceData = @stock_datum.history_day.all
+    @close1 = @priceData.group(:date).maximum(:close).first(10)
     @close2 = @priceData.group(:date).maximum(:close).first(100)
     foo = @close2.collect { |k, v| v }
     @graphMin = foo.min
