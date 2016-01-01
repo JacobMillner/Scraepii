@@ -42,6 +42,10 @@ gem 'groupdate'
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
+gem 'table-for'
+
+gem 'will_paginate', '~> 3.0.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
