@@ -15,9 +15,9 @@ class StockDataController < ApplicationController
     @priceData = @stock_datum.history_day.all
     @close1 = @priceData.group(:date).maximum(:close).first(10)
     @close2 = @priceData.group(:date).maximum(:close).first(100)
-    foo = @close2.collect { |k, v| v }
-    @graphMin = foo.min
-    @graphMax = foo.max
+    highLow = @close2.collect { |k, v| v }
+    @graphMin = highLow.min
+    @graphMax = highLow.max
     @table = HtmlMachine.genBasicTable(@priceData)
   end
 
@@ -34,9 +34,10 @@ class StockDataController < ApplicationController
   # POST /stock_data.json
   def create
     #add single
+    sl = ScrapeLogic.new
     if params[:stock_datum].present?
       stockForm = params[:stock_datum]
-      if ScrapeLogic.isSymbolValid(stockForm[:symbol])
+      if sl.isSymbolValid(stockForm[:symbol])
         if !StockDatum.where(:symbol => stockForm[:symbol]).present?
           @stock_datum = StockDatum.new(stock_datum_params)
           respond_to do |format|
@@ -49,11 +50,19 @@ class StockDataController < ApplicationController
             end
           end
         else
-          flash[:notice] = 'Symbol' + stockForm[:symbol] + ' is already in the database!'
+          flash[:notice] = 'Symbol ' + stockForm[:symbol] + ' is already in the database!'
         end
       else
-        flash[:notice] = 'Symbol' + stockForm[:symbol] + ' does not exist.'
-        redirect_to stock_data_path
+        #symbol has no data, lets make sure its not prefixed with an index
+        indexSymbol = sl.tryMatchIndex(stockForm[:symbol])
+        if indexSymbol != ''
+            newSymbol =  StockDatum.new
+	          newSymbol.symbol = indexSymbol
+	          newSymbol.save   
+        else
+          flash[:notice] = 'Symbol ' + stockForm[:symbol] + ' does not exist.'
+          redirect_to stock_data_path
+        end
       end
     end
     #multi-add
@@ -64,13 +73,22 @@ class StockDataController < ApplicationController
         symbolsNotAdded = []
         symbols.each do |symbol|
           symbol.upcase!
-          if ScrapeLogic.isSymbolValid(symbol)
-	    newSymbol =  StockDatum.new
-	    newSymbol.symbol = symbol
-	    newSymbol.save
+          if sl.isSymbolValid(symbol)
+	          newSymbol =  StockDatum.new
+	          newSymbol.symbol = symbol
+	          newSymbol.save
             symbolsAdded.push(symbol)
           else
-            symbolsNotAdded.push(symbol)
+            #symbol has no data, lets make sure its not prefixed with an index
+            indexSymbol = sl.tryMatchIndex(symbol)
+            if indexSymbol != ''
+              newSymbol =  StockDatum.new
+	            newSymbol.symbol = indexSymbol
+	            newSymbol.save
+              symbolsAdded.push(symbol)
+            else
+              symbolsNotAdded.push(symbol)
+            end
           end
         end			
         flash[:notice] = 'Valid Symbols added: ' + symbolsAdded.join(" ") + ' Invalid Symbols: ' + symbolsNotAdded.join(" ")

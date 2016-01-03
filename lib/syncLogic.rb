@@ -6,12 +6,13 @@ class SyncLogic
   
   #pass in a symbolId and scrape + add up to date data. Returns string message.
   def syncOne(symbolId)
+    sl = ScrapeLogic.new
     stockRecords = StockDatum.find(symbolId)
     if stockRecords != nil
       @days = stockRecords.history_day.all
       if @days.count == 0
         #scrape all the records
-        priceData = ScrapeLogic.scrapeAll(stockRecords.symbol)
+        priceData = sl.scrapeAll(stockRecords.symbol)
         priceData = Common.prepDataForDatabase(priceData)
         priceData.each do |day|
           newDay = HistoryDay.new
@@ -31,7 +32,7 @@ class SyncLogic
       else
         #scrape only records from our last date
         daysSince = (Date.today - @days.first.date).to_i
-        priceData = ScrapeLogic.scrapeAll(stockRecords.symbol, daysSince)
+        priceData = sl.scrapeAll(stockRecords.symbol, daysSince)
         priceData = Common.prepDataForDatabase(priceData)
         daysAdded = 0
         priceData.each do |day|
@@ -46,7 +47,7 @@ class SyncLogic
             newDay.volume = day.volume
             newDay.points = day.points
             newDay.weekOfYear = day.weekOfYear
-	    newDay.up = day.up
+	          newDay.up = day.up
             newDay.stock_datum_id = symbolId
             newDay.save
             daysAdded += 1

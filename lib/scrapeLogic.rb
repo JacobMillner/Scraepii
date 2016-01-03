@@ -6,6 +6,7 @@ class ScrapeLogic
   #defaults start number at 0 and how many records we show at a time to 200
   def buildGoogLink(symbol, startNum = 0, numToScrape = 200)
     currDate = Time.now
+    symbol.gsub!(':','%3A') #clean out any index colons
     startYear = (currDate.strftime("%Y").to_i - 2).to_s #take two years off current date...
     link = 'https://www.google.com/finance/historical?' +
              '&q='+ symbol + 
@@ -21,11 +22,10 @@ class ScrapeLogic
   end
   
   #lets check to see if there is any data for this symbol
-  def self.isSymbolValid(symbol)
+  def isSymbolValid(symbol)
     mechanize = Mechanize.new
     sl = ScrapeLogic.new
     check = false
-    
     if symbol != nil
       googLink = sl.buildGoogLink(symbol)
       page = mechanize.get(googLink)
@@ -34,14 +34,30 @@ class ScrapeLogic
       if prices.count >= 1
         check = true
       end
-    end
-    
+    end   
     return check
+  end
+  
+  #no data for the symbol found? lets try matching it with an index
+  def tryMatchIndex(symbol)
+    mechanize = Mechanize.new
+    sl = ScrapeLogic.new
+    indexSymbol = ''
+    if symbol != nil
+      indexArray = ['NYSEMKT', 'NYSE', 'NASDAQ']
+      indexArray.each do |index|
+        tempSymbol = index + ':' + symbol
+        if sl.isSymbolValid(tempSymbol)
+          return indexSymbol = index + ':' + symbol
+        end
+      end
+    end
+    return indexSymbol
   end
   
   #pass in a symbol and get 2 years worth of data
   #or also pass in how many days to scrape
-  def self.scrapeAll(symbol, daysSinceSync = 0)
+  def scrapeAll(symbol, daysSinceSync = 0)
     if symbol != nil
       mechanize = Mechanize.new
       sl = ScrapeLogic.new
