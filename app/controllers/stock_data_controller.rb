@@ -61,6 +61,7 @@ class StockDataController < ApplicationController
       symbols = params[:multi_symbols].split(/\W+/)
       if symbols.count > 0
         symbolsAdded = []
+        symbolsNotAdded = []
         symbols.each do |symbol|
           symbol.upcase!
           if ScrapeLogic.isSymbolValid(symbol)
@@ -68,9 +69,11 @@ class StockDataController < ApplicationController
 	    newSymbol.symbol = symbol
 	    newSymbol.save
             symbolsAdded.push(symbol)
+          else
+            symbolsNotAdded.push(symbol)
           end
         end			
-      	flash[:notice] = 'Valid Symbols added: ' + symbolsAdded.join(" ")
+        flash[:notice] = 'Valid Symbols added: ' + symbolsAdded.join(" ") + ' Invalid Symbols: ' + symbolsNotAdded.join(" ")
       end
       redirect_to stock_data_path
     end
