@@ -42,7 +42,7 @@ gem 'groupdate'
 
 gem 'activerecord-session_store', github: 'rails/activerecord-session_store'
 
-gem 'table-for'
+gem 'datagrid', :git => 'git://github.com/bogdan/datagrid.git'
 
 gem 'will_paginate', '~> 3.0.6'
 

@@ -1,3 +1,3 @@
 class StockDatum < ActiveRecord::Base
-  has_many :history_day
+  	has_many :history_day
 end

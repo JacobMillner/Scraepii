@@ -40,21 +40,6 @@ ActiveRecord::Schema.define(version: 20151231002110) do
     t.boolean  "up"
   end
 
-  create_table "rails", force: :cascade do |t|
-    t.string   "g"
-    t.string   "scaffold"
-    t.string   "DayTrend"
-    t.integer  "type"
-    t.decimal  "percent"
-    t.integer  "count"
-    t.datetime "startDate"
-    t.datetime "endDate"
-    t.integer  "symbolID"
-    t.integer  "dayID"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "sessions", force: :cascade do |t|
     t.string   "session_id", null: false
     t.text     "data"
