@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :datum_grids
   resources :day_trends
   resources :history_days
   resources :stock_data
