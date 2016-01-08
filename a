@@ -1,0 +1,375 @@
+[33mcommit da1a85211d58c8c993381ccf39f7cec7fd2ef692[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Jan 7 21:09:49 2016 +0000
+
+    Datagrid setup, WIP.
+
+[33mcommit b61ce61f8f97ac7ee4dc0a4dcff1c12dc3b48110[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Tue Jan 5 20:49:26 2016 -0500
+
+    switching over to use datagrid
+
+[33mcommit 6cc800ad4221bf6b31477e959cc4b2ab1d601db4[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Jan 3 02:51:05 2016 +0000
+
+    added logic for finding symbols with matching index
+
+[33mcommit 1fe571cfd633131a28bee92d648d491a1b015c2a[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Jan 3 00:07:53 2016 +0000
+
+    Updated add from list to show invalid symbols
+
+[33mcommit 21e00a9429d981378df3912d1b316cbf948aa9b2[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Sat Jan 2 18:41:29 2016 -0500
+
+    Create s&p500.txt
+    
+    Created new list for S&P500.
+
+[33mcommit 4de1ec69cb2c3cff66efacd9281d909858845bf6[m
+Merge: 2883d93 b010488
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Fri Jan 1 11:00:41 2016 -0500
+
+    Merge branch 'master' of https://github.com/Zetsuboushita/Scraepii
+
+[33mcommit 2883d93564af3d715dce8be1971f55ea0b7f0ac1[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Fri Jan 1 11:00:14 2016 -0500
+
+    working on switching over to table_for gem to create custom tables
+
+[33mcommit b01048845adfec10680956a31da9408c769f447b[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Dec 31 00:27:09 2015 +0000
+
+    Added day trend scaffolding
+
+[33mcommit ddc9ed718851f4a3bf6b47853b3d24c0b24dc91e[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Dec 30 02:11:18 2015 +0000
+
+    small UI changes
+
+[33mcommit f0aec8be395fd848248fa745f80c48fec59c4489[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Dec 30 01:51:57 2015 +0000
+
+    switched to highcharts
+
+[33mcommit c3a6329774f0b7924453bfed1a409525d944b89a[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Dec 30 01:27:15 2015 +0000
+
+    linechart formatting
+
+[33mcommit f2ef7f53af0848f0a3406230d7c8470f5fc32ae5[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Dec 30 00:30:10 2015 +0000
+
+    charts working
+
+[33mcommit fe519ef5b0ea9258f11094fa6d11c5904b149d3c[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Tue Dec 29 18:07:30 2015 -0500
+
+    added s&p500 list
+
+[33mcommit 029fe508b24596e39f47e1572fa270eeb17e8b99[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Tue Dec 29 00:58:13 2015 +0000
+
+    maybe fixed cookie overflow error
+
+[33mcommit d3efe34d10b9dc9771424f6399520d5fadc171fa[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Sun Dec 27 17:28:14 2015 -0500
+
+    Took out public vars in sync logic, fixed default scope on history_days
+
+[33mcommit bc39d9b72a0efe7107575b5f9b9a426d5067cd08[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Sat Dec 26 18:34:05 2015 -0500
+
+    Added up boolean to history_days, set in sync logic and added default_scope order.
+
+[33mcommit 222bd0ae5aeacadcfb35e3470d847ee17a734cae[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Dec 24 12:03:27 2015 +0000
+
+    Slopply code and core extensions
+
+[33mcommit ecd88de6c30c7f326f10fd7fe26311273689d99e[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Wed Dec 23 18:29:00 2015 -0500
+
+    Sync all finished
+
+[33mcommit 15d8a14c8fe5ce509fdb7db2f76154efb34c99fa[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Thu Dec 17 15:32:42 2015 -0500
+
+    Finished multi-add symbols. Next, multi sync.
+
+[33mcommit ea9f81c7a71dadda65a114045570c2498daff982[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Tue Dec 15 03:07:38 2015 +0000
+
+    fixing what I broke yesterday
+
+[33mcommit aed57c8af00ead997d81a9a37fe2b7f6aa2b43bd[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Dec 14 01:20:12 2015 +0000
+
+    a few frontend changes
+
+[33mcommit d63ec0b4d193ba5fea544d629bb5c611856a40dd[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Dec 13 05:23:12 2015 +0000
+
+    Work on multi add symbols
+
+[33mcommit 09a58d62d3b715a2e3ef14608720cc84751276a3[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sat Dec 12 04:30:04 2015 +0000
+
+    work on multi symbol add
+
+[33mcommit 42d30c5b7b15e5f7c16be5c7eeaba6996b5b315c[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sat Dec 12 01:40:32 2015 +0000
+
+    Finished working on syncOne. Now to do add from list and sync all.
+
+[33mcommit ab55207c9afcf91a8cf213366c09e890ca482de3[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sat Dec 12 00:26:42 2015 +0000
+
+    Some cleanup and more work on sync.
+
+[33mcommit e245619a3971509b0a225f01269f2fc94c12856c[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Fri Dec 11 21:53:08 2015 +0000
+
+    woo! we have database data! SyncAll works.
+
+[33mcommit 222a698fddd5831d7389a2a32ce15732c941c746[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Dec 10 02:03:14 2015 +0000
+
+    Moving sync logic out of controller
+
+[33mcommit 5ead3ac38998606461f0a94bbc4570efd65de2f6[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Dec 10 01:18:09 2015 +0000
+
+    Started the long process of the first sync function. WIP
+
+[33mcommit 5e35b3199b36ca3f844a4dd69e8bbd5a84c7b3c5[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Dec 9 01:44:54 2015 +0000
+
+    Started working on database sync
+
+[33mcommit 47a54a235df3c008084d6e796d1b6e181e22795f[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Nov 18 01:36:26 2015 +0000
+
+    finished up with the db prep for Days. Table Now shows ups and downs.
+
+[33mcommit a7e712280b1e7e4e47402fc4ab2dba4d19309f8b[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Tue Nov 17 21:35:22 2015 +0000
+
+    adding a new Day class to cast all days as
+
+[33mcommit 5374c515c988507c56e5b166fc96e1e62245cdf2[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Nov 16 02:31:58 2015 +0000
+
+    added week of year to prepDataForDatabase
+
+[33mcommit fecab697178be5147fd54b1bd2f7dbd38feb2fe1[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Nov 12 15:44:45 2015 +0000
+
+    created relationship between stock_datum and history_day
+
+[33mcommit e64485401cf50c71f6cc5acae734963e710af1cd[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Tue Nov 10 21:50:38 2015 +0000
+
+    Finished converting the scraped data to make ready for database entry
+
+[33mcommit 10c8f9df545f9e10fec8ada16a1c54d004b47498[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Nov 9 21:44:07 2015 +0000
+
+    Added a common file, and created prepData function.
+
+[33mcommit 5038b226365c96588adab78efceb8ef0859a740b[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Nov 9 01:52:35 2015 +0000
+
+    work on dealing with blank scraped records. WIP.
+
+[33mcommit 5c389fc4f80835abf8df8a3b3307c4668791cca3[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Nov 9 00:50:23 2015 +0000
+
+    created htmlMachine genTable function
+
+[33mcommit c2009a1a6f874006b73f0d1f3f2bfa313a39205a[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Nov 8 03:15:15 2015 +0000
+
+    price history is now scraped as a 2d array
+
+[33mcommit dd06a05c916530ba299ddb373ece1358ae3f9024[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Nov 8 02:20:24 2015 +0000
+
+    symbol validation completed
+
+[33mcommit 31a5e9f05a26b6b0ceb2efb3a98c67ced054023f[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Fri Oct 30 01:31:15 2015 +0000
+
+    working on validation of symbols, also created html machine library
+
+[33mcommit 4aae0bd4f1a3a968a863f7990f7a883ebac275e0[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Fri Oct 23 00:35:17 2015 +0000
+
+    designed and setup database
+
+[33mcommit c3534e1c113c76f2c6942fa7b846d1c24414e089[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Oct 19 01:16:20 2015 +0000
+
+    another bug fix to googLink and additions to chrisSandbox
+
+[33mcommit 6b1bb68efe0c898c57fcbb6b25113605c7e10716[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Oct 19 00:40:03 2015 +0000
+
+    scrape all fixes and a bit of cleanup
+
+[33mcommit 77024a8b0504207043cd64effc317760d74e93bd[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Oct 18 23:58:47 2015 +0000
+
+    finished up google link builder and scrapeAll in scrapeLogic
+
+[33mcommit b590ad4bb9879353ddb72fc6cf9d905f700ccca1[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Oct 18 00:51:24 2015 +0000
+
+    created google link builder in scrapeLogic lib
+
+[33mcommit 7ce62588f5b3339edda00b62d6338dd2d7cd21e2[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sat Oct 17 23:38:05 2015 +0000
+
+    added evil icons
+
+[33mcommit e060fab4fa2715ec35ef9676ee0a4763ebbd9d2d[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sat Oct 17 22:22:38 2015 +0000
+
+    Added sandbox controller for Chris and added text box to search Symbol to scrape.
+
+[33mcommit 5f40a5129e68c436138bdfb5ccf5f4cd79f0ba26[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Oct 15 02:04:45 2015 +0000
+
+    figured out how to add library files and call their methods
+
+[33mcommit 7366b12ff026753d5eabc996ed445711496f69d6[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Tue Oct 13 01:37:24 2015 +0000
+
+    Added ability to search different symbols
+
+[33mcommit 74cc257053585dd19e7030eb5bf3e1ac62f48b49[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Oct 12 20:58:47 2015 +0000
+
+    added params
+
+[33mcommit 9601b15ecb6d6a2fb4b9bc74c2a84e78d2386521[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Mon Oct 12 20:40:44 2015 +0000
+
+    Got the scraped data showing in tables, and pulling back 402 total records
+
+[33mcommit 893da8190a1e874711a93b21398e9b0d38e6ed46[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Thu Oct 8 17:47:04 2015 +0000
+
+    progress on scraping the table
+
+[33mcommit 71811cfb3b7fe2942c501bc6a6edbac5c126644a[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Oct 7 14:54:12 2015 +0000
+
+    Ding ding, figured out how to grab the correct children
+
+[33mcommit fdc207edd03c5af92615842c089a35760460c9f4[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Oct 7 01:22:18 2015 +0000
+
+    more scraping
+
+[33mcommit 55dccc6746f554031da969a9acfea326351e5ec9[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Wed Oct 7 01:01:22 2015 +0000
+
+    scraper is -a- scraping
+
+[33mcommit b82d6ab878fe7647acaa1ed4e7ab7bf4113a0f86[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Sep 27 23:44:14 2015 +0000
+
+    created folder devDocs and created todo.txt
+
+[33mcommit 6d8a4de6b67e4cf7b33d26573f1a187379a23545[m
+Merge: 93b5a47 b036fb6
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Sep 27 23:16:15 2015 +0000
+
+    Merge branch 'master' of https://github.com/Zetsuboushita/Scraepii
+
+[33mcommit 93b5a475fa86aa22c02a10e6fbd5f4a949163892[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Sep 27 23:15:58 2015 +0000
+
+    setup darkly bootstrap theme
+
+[33mcommit b036fb67f1a13eafbe4e4c6a41aac6c98c9dfe18[m
+Author: CBenton <cbenton0212@yahoo.com>
+Date:   Sun Sep 27 03:10:41 2015 +0000
+
+    Added instructions
+
+[33mcommit 6575d898e994a691133790e882818b52430643e8[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Sep 27 01:22:29 2015 +0000
+
+    fixed server host
+
+[33mcommit 433dbfa86325a47c8941262d713006931ac644cd[m
+Author: JMillner <jacob.millner@outlook.com>
+Date:   Sun Sep 27 01:05:59 2015 +0000
+
+    setup rails project
+
+[33mcommit e437630ff6708c1f2f28f00aa7fb2657718d462f[m
+Author: Jacob Millner <jacob.millner@outlook.com>
+Date:   Fri Sep 25 13:06:21 2015 -0400
+
+    Initial commit
