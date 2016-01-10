@@ -6,12 +6,14 @@ class DatumGridsGrid
     HistoryDay
   end
 
+  filter(:symbol, :string)
   filter(:id, :integer)
   filter(:stock_datum_id, :integer)
   filter(:high, :float, :range => true)
   filter(:up, :boolean)
 
   column(:id)
+  column(:symbol)
   column(:date)
   column(:high)
   column(:low)

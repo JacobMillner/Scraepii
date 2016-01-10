@@ -92,6 +92,7 @@ class ScrapeLogic
       day.low = data.children[4].text.strip
       day.close = data.children[5].text.strip
       day.volume = data.children[6].text.strip
+      day.symbol = symbol.upcase
       stockHistory.push(day)
     end
     return stockHistory 

@@ -1,3 +1,3 @@
 class Day
-  attr_accessor :date,:open,:high,:low,:close,:volume,:weekOfYear,:points,:up
+  attr_accessor :date, :open, :high, :low, :close, :volume, :weekOfYear, :points, :up, :symbol
 end
