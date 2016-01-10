@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151231002110) do
+ActiveRecord::Schema.define(version: 20160110231803) do
 
   create_table "day_trends", force: :cascade do |t|
     t.integer  "type"
@@ -38,6 +38,22 @@ ActiveRecord::Schema.define(version: 20151231002110) do
     t.datetime "updated_at",     null: false
     t.integer  "stock_datum_id"
     t.boolean  "up"
+    t.string   "symbol"
+  end
+
+  create_table "rails", force: :cascade do |t|
+    t.string   "g"
+    t.string   "scaffold"
+    t.string   "DayTrend"
+    t.integer  "type"
+    t.decimal  "percent"
+    t.integer  "count"
+    t.datetime "startDate"
+    t.datetime "endDate"
+    t.integer  "symbolID"
+    t.integer  "dayID"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|

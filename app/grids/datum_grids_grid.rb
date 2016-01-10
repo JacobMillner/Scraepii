@@ -7,6 +7,9 @@ class DatumGridsGrid
   end
 
   filter(:id, :integer)
+  filter(:stock_datum_id, :integer)
+  filter(:high, :float, :range => true)
+  filter(:up, :boolean)
 
   column(:id)
   column(:date)
