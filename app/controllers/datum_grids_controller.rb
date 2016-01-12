@@ -1,9 +1,6 @@
 class DatumGridsController < ApplicationController
 
   def index
-#     @grid = DatumGridsGrid.new(params[:datum_grids_grid]) do |scope|
-#       scope.page(params[:page])
-#     end
     @params = params[:datum_grids_grid]
     @grid = DatumGridsGrid.new(params[:datum_grids_grid])
     respond_to do |f|
@@ -11,7 +8,9 @@ class DatumGridsController < ApplicationController
         @grid.scope {|scope| scope.page(params[:page]) }
       end
       f.csv do
-        send_data @grid.to_csv, 
+        csvGrid = @grid.to_csv
+        csvGrid = csvGrid.split.join(',')
+        send_data csvGrid, 
           type: "text/csv", 
           disposition: 'inline', 
           filename: "grid-#{Time.now.to_s}.csv"
