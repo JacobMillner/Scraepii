@@ -4,6 +4,7 @@ class DatumGridsController < ApplicationController
 #     @grid = DatumGridsGrid.new(params[:datum_grids_grid]) do |scope|
 #       scope.page(params[:page])
 #     end
+    @params = params[:datum_grids_grid]
     @grid = DatumGridsGrid.new(params[:datum_grids_grid])
     respond_to do |f|
       f.html do

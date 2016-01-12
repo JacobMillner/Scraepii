@@ -1,7 +1,7 @@
 <%= stylesheet_link_tag "datagrid" %>
 <%= datagrid_form_for @grid, :method => :get, :url => datum_grids_path %>
 
-<%= link_to "Get CSV", url_for(format: 'csv') %>
+<%= link_to "Get CSV", url_for(format: 'csv', :datum_grids_grid => @params) %>
 <p>
 <%= will_paginate(@grid.assets) %>
 <%= datagrid_table @grid %>

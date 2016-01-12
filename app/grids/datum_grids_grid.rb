@@ -11,6 +11,8 @@ class DatumGridsGrid
   filter(:stock_datum_id, :integer)
   filter(:high, :float, :range => true)
   filter(:up, :boolean)
+  
+  column_names_filter(:header => "Extra Columns", checkboxes: true)
 
   column(:id)
   column(:symbol)
