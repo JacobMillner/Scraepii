@@ -3,14 +3,13 @@ Rails.application.routes.draw do
   resources :day_trends
   resources :history_days
   resources :stock_data
-  get 'chris_sandbox/index'
   get 'sync/syncSymbol'
   get 'sync/syncAll'
+  get 'datum_grids/index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   root 'home#index'
-
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

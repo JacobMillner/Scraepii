@@ -9,7 +9,7 @@ class DatumGridsController < ApplicationController
       end
       f.csv do
         csvGrid = @grid.to_csv
-        csvGrid = csvGrid.split.join(',')
+        csvGrid = csvGrid.split.join("\n")
         send_data csvGrid, 
           type: "text/csv", 
           disposition: 'inline', 
