@@ -38,6 +38,11 @@ class ScrapeLogic
     return check
   end
   
+  #make sure the symbol doesnt already exist in our db
+  def symbolIsNotDupe(symbol)
+    return !StockDatum.where(:symbol => symbol).present?
+  end
+  
   #no data for the symbol found? lets try matching it with an index
   def tryMatchIndex(symbol)
     mechanize = Mechanize.new

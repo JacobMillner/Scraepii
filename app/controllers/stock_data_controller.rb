@@ -38,7 +38,7 @@ class StockDataController < ApplicationController
     if params[:stock_datum].present?
       stockForm = params[:stock_datum]
       if sl.isSymbolValid(stockForm[:symbol])
-        if !StockDatum.where(:symbol => stockForm[:symbol]).present?
+        if sl.symbolIsNotDupe(stockForm[:symbol])
           @stock_datum = StockDatum.new(stock_datum_params)
           respond_to do |format|
             if @stock_datum.save
@@ -50,7 +50,8 @@ class StockDataController < ApplicationController
             end
           end
         else
-          flash[:notice] = 'Symbol ' + stockForm[:symbol] + ' is already in the database!'
+          flash[:notice] = 'Symbol ' + stockForm[:symbol].to_s + ' is already in the database!'
+          redirect_to stock_data_path
         end
       else
         #symbol has no data, lets make sure its not prefixed with an index
@@ -74,24 +75,31 @@ class StockDataController < ApplicationController
         symbols.each do |symbol|
           symbol.upcase!
           if sl.isSymbolValid(symbol)
-	          newSymbol =  StockDatum.new
-	          newSymbol.symbol = symbol
-	          newSymbol.save
-            symbolsAdded.push(symbol)
+            if sl.symbolIsNotDupe(symbol)
+              newSymbol =  StockDatum.new
+              newSymbol.symbol = symbol 
+              newSymbol.save
+              symbolsAdded.push(symbol)
+            else
+              symbolsNotAdded.push(symbol + '(already exists)')
+            end
           else
-            #symbol has no data, lets make sure its not prefixed with an index
             indexSymbol = sl.tryMatchIndex(symbol)
             if indexSymbol != ''
-              newSymbol =  StockDatum.new
-	            newSymbol.symbol = indexSymbol
-	            newSymbol.save
-              symbolsAdded.push(symbol)
+              if sl.symbolIsNotDupe(symbol)
+                newSymbol =  StockDatum.new
+                newSymbol.symbol = indexSymbol
+                newSymbol.save
+                symbolsAdded.push(symbol)
+              else
+                symbolsNotAdded.push(symbol + '(already exists)')
+              end
             else
               symbolsNotAdded.push(symbol)
             end
           end
         end			
-        flash[:notice] = 'Valid Symbols added: ' + symbolsAdded.join(" ") + ' Invalid Symbols: ' + symbolsNotAdded.join(" ")
+        flash[:notice] = 'Valid Symbols added: ' + symbolsAdded.join(" ") + '. Invalid Symbols: ' + symbolsNotAdded.join(", ")
       end
       redirect_to stock_data_path
     end
