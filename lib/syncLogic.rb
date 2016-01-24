@@ -55,7 +55,7 @@ class SyncLogic
             daysAdded += 1
           end
         end
-        message = 'Number of days since sync:' + daysSince.to_s  + '. Days added to DB:' + daysAdded.to_s
+        message = 'Current Date: ' + DateTime.now.to_s + ' Number of days since sync:' + daysSince.to_s  + '. Days added to DB:' + daysAdded.to_s
       end
     else
       message = 'ERROR: Symbol does not exist!'
