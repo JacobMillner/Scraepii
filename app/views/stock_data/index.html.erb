@@ -9,7 +9,6 @@
       <th colspan="3"></th>
     </tr>
   </thead>
-
   <tbody>
     <% @stock_data.each do |stock_datum| %>
       <tr>
@@ -25,11 +24,8 @@
 </table>
 
 <br>
-
 <%= link_to 'New Stock datum', new_stock_datum_path %>
 <p>
-  
-  <p>
 <div class="row">
   <div class="col-sm-4">
     <%= form_tag(stock_data_path) do %>
