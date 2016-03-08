@@ -2,7 +2,7 @@ development:
   adapter: postgresql
   encoding: utf8
   database: uptik_development
-  host: localhost
+# host: localhost
   pool: 5
   timeout: 5000
 
