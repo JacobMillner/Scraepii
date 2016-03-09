@@ -6,6 +6,10 @@ require 'capistrano/deploy'
 
 require 'capistrano/rails'
 
+require 'capistrano/unicorn_nginx'
+
+#set :nginx_server_name, 'uptik.io'
+
 set :repository_cache, "cached_copy"
 
 # Include tasks from other gems included in your Gemfile
