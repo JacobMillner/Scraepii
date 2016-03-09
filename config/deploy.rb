@@ -5,7 +5,10 @@ set :deploy_via, :remote_cache
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 set :pty, true
-set :use_sudo, false
+set :use_sudo, true
+set :runner, 'uptik'
+set :unicorn_service, -> { "unicorn_#{fetch(:application)}" }
+
 
 namespace :deploy do
 
