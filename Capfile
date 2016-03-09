@@ -6,6 +6,8 @@ require 'capistrano/deploy'
 
 require 'capistrano/rails'
 
+set :repository_cache, "cached_copy"
+
 # Include tasks from other gems included in your Gemfile
 #
 # For documentation on these, see for example:
