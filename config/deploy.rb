@@ -1,10 +1,11 @@
 set :application, 'uptik'
 set :repo_url, 'git@github.com:Zetsuboushita/Scraepii.git'
 set :deploy_to, '/opt/www/uptik'
+set :deploy_via, :remote_cache
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 set :pty, true
-set :sudo_prompt, ""
+set :use_sudo, false
 
 namespace :deploy do
 
