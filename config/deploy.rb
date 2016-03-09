@@ -4,6 +4,7 @@ set :deploy_to, '/opt/www/uptik'
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 set :pty, true
+set :sudo_prompt, ""
 
 namespace :deploy do
 
