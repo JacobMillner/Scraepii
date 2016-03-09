@@ -3,6 +3,7 @@ set :repo_url, 'git@github.com:Zetsuboushita/Scraepii.git'
 set :deploy_to, '/opt/www/uptik'
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
+set :pty, true
 
 namespace :deploy do
 
