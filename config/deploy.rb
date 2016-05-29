@@ -5,7 +5,7 @@ set :deploy_via, :remote_cache
 set :user, 'deploy'
 set :linked_dirs, %w{log tmp/pids tmp/cache tmp/sockets}
 set :pty, true
-set :use_sudo, true
+set :use_sudo, false
 set :runner, 'uptik'
 set :unicorn_service, -> { "unicorn_#{fetch(:application)}" }
 
@@ -17,7 +17,7 @@ namespace :deploy do
     task command do
       on roles(:app), in: :sequence, wait: 1 do
         execute "/etc/init.d/unicorn_#{fetch(:application)} #{command}"
-      end      
+      end
     end
   end
 
