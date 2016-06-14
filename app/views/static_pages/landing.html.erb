@@ -15,26 +15,6 @@
     <!-- Styles -->
 	<%= stylesheet_link_tag "font-awesome", "metisMenu", "animate", "bootstrap", "pe-icon-7-stroke", "helper", "homer-style" %>
 	
-	<script>
-	//we have to load this here so that it plays nicely with turbolinks
-      var ready = function() {
-            // Page scrolling feature
-			$('a.page-scroll').bind('click', function(event) {
-				var link = $(this);
-				$('html, body').stop().animate({
-					scrollTop: $(link.attr('href')).offset().top - 50
-				}, 500);
-				event.preventDefault();
-			});
-
-			$('body').scrollspy({
-				target: '.navbar-fixed-top',
-				offset: 80
-			});
-        };
-      $(document).ready(ready);
-      $(document).on('page:load', ready);
-    </script>  
 </head>
 <body class="landing-page">
 
@@ -576,28 +556,27 @@
 </section>
 
 <!-- Vendor scripts -->
-<%= javascript_include_tag "jquery.min", "jquery-ui.min", "jquery.slimscroll.min", "bootstrap.min", "metisMenu.min", "icheck.min", "sprakline-index", "homer" %>
-
+<%= javascript_include_tag "jquery.min", "jquery-ui.min", "jquery.slimscroll.min", "bootstrap.min", "metisMenu.min", "icheck.min", "sparkline-index", "homer", "static_pages" %> 
 <!-- Local script for menu handle -->
 <!-- It can be also directive -->
-<script>
-    $(document).ready(function () {
-
-        // Page scrolling feature
-        $('a.page-scroll').bind('click', function(event) {
-            var link = $(this);
-            $('html, body').stop().animate({
-                scrollTop: $(link.attr('href')).offset().top - 50
-            }, 500);
-            event.preventDefault();
-        });
-
-        $('body').scrollspy({
-            target: '.navbar-fixed-top',
-            offset: 80
-        });
-
-    });
+<script> 
+  var ready;
+  ready = function() {
+    $('a.page-scroll').bind('click', function(event) {
+               var link = $(this);
+               $('html, body').stop().animate({
+                   scrollTop: $(link.attr('href')).offset().top - 50
+               }, 500);
+               event.preventDefault();
+           });
+   
+           $('body').scrollspy({
+               target: '.navbar-fixed-top',
+               offset: 80     
+           });
+  };
+  $(document).ready(ready);
+  $(document).on('turbolinks:load', ready);
 </script>
 
 </body>

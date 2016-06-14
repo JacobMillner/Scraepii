@@ -16,6 +16,8 @@ Rails.application.config.assets.precompile += %w( darkly.css )
 Rails.application.config.assets.precompile += %w( darkly.js )
 Rails.application.config.assets.precompile += %w( datagrid.css )
 Rails.application.config.assets.precompile += %w( home.css )
+Rails.application.config.assets.precompile += %w( static_pages.coffee )
+
 
 #homer theme
 #JS
@@ -25,7 +27,7 @@ Rails.application.config.assets.precompile += %w( jquery.slimscroll.min.js )
 Rails.application.config.assets.precompile += %w( bootstrap.min.js )
 Rails.application.config.assets.precompile += %w( metisMenu.min.js )
 Rails.application.config.assets.precompile += %w( icheck.min.js )
-Rails.application.config.assets.precompile += %w( sprakline-index.js )
+Rails.application.config.assets.precompile += %w( sparkline-index.js )
 Rails.application.config.assets.precompile += %w( homer.js )
 #css
 Rails.application.config.assets.precompile += %w( homer/font-awesome.css )

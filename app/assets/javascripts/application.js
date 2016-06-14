@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require highcharts.js
 //= require chartkick
+//= require static_pages.coffee
 
 //= require twitter/bootstrap/transition
 //= require twitter/bootstrap/alert
