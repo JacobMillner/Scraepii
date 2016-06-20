@@ -1,0 +1,166 @@
+/* line 19, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid {
+  background-color: transparent;
+  border-collapse: collapse;
+  max-width: 100%;
+}
+/* line 24, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid th {
+  background-color: transparent;
+  text-align: left;
+}
+/* line 28, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid td,
+table.datagrid th {
+  border: 1px solid #d6d6d6;
+  padding: 5px 10px;
+}
+/* line 34, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid td .order a.asc, table.datagrid td .order a.desc,
+table.datagrid th .order a.asc,
+table.datagrid th .order a.desc {
+  text-decoration: none;
+  font-weight: normal;
+}
+/* line 38, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid td.ordered,
+table.datagrid th.ordered {
+  background-color: #00b36b;
+}
+/* line 42, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid td.ordered.asc a.asc,
+table.datagrid th.ordered.asc a.asc {
+  font-weight: bold;
+  color: #d00;
+}
+/* line 47, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid td.ordered.desc a.desc,
+table.datagrid th.ordered.desc a.desc {
+  font-weight: bold;
+  color: #d00;
+}
+/* line 50, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+table.datagrid .noresults {
+  text-align: center;
+}
+
+/* line 53, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-form {
+  background-color: transparent;
+  border-radius: 5px;
+  padding: 20px;
+}
+
+/* line 58, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter {
+  margin: 10px;
+  *zoom: 1;
+}
+/* line 6, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter:before, .datagrid-filter:after {
+  display: table;
+  content: "";
+}
+/* line 11, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter:after {
+  clear: both;
+}
+/* line 62, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter label {
+  width: 150px;
+  float: left;
+}
+/* line 65, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter a {
+  float: left;
+}
+/* line 68, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter input[class*='filter'] {
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  float: left;
+  padding: 5px 12px;
+  width: 207px;
+}
+/* line 75, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter input[class*='filter'].from, .datagrid-filter input[class*='filter'].to {
+  width: 83px;
+}
+/* line 78, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter select {
+  float: left;
+  width: 235px;
+}
+/* line 82, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter select[multiple] {
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  height: 100px;
+}
+/* line 87, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter select.dynamic_filter.field {
+  width: 178px;
+}
+/* line 89, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter select.dynamic_filter.operation {
+  margin-left: 7px;
+  width: 50px;
+}
+/* line 92, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter input.dynamic_filter.value {
+  margin: 10px 0 0 150px;
+  clear: both;
+}
+/* line 96, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter .separator {
+  float: left;
+  margin: 6px 4px 0;
+}
+/* line 99, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter .enum_filter.checkboxes {
+  float: none;
+  display: block;
+  margin-left: 150px;
+}
+/* line 102, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-filter .enum_filter.checkboxes input {
+  margin: 7px;
+}
+
+/* line 107, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-actions {
+  padding-left: 160px;
+}
+/* line 110, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-actions input[type='submit'] {
+  background-color: #555;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: bold;
+  line-height: normal;
+  padding: 7px 15px;
+  vertical-align: middle;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
+/* line 123, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-actions input[type='submit']:hover, .datagrid-actions input[type='submit']:focus {
+  background-color: #333;
+}
+/* line 127, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-actions input[type='submit']:active {
+  background-color: #000;
+}
+/* line 130, /home/jacob/Projects/Scraepii/app/assets/stylesheets/datagrid.sass */
+.datagrid-actions > a {
+  font-size: 14px;
+  padding: 7px 15px;
+  vertical-align: middle;
+  display: inline-block;
+  zoom: 1;
+  *display: inline;
+}
