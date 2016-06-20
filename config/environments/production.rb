@@ -76,4 +76,38 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  config.assets.precompile += %w( highcharts.js )
+  config.assets.precompile += %w( datagrid.css )
+  config.assets.precompile += %w( home.css )
+  config.assets.precompile += %w( static_pages.coffee )
+
+#homer theme
+#JS
+  config.assets.precompile += %w( jquery-ui.min.js )
+  config.assets.precompile += %w( jquery.min.js )
+  config.assets.precompile += %w( jquery.slimscroll.min.js )
+  config.assets.precompile += %w( bootstrap.min.js )
+  config.assets.precompile += %w( metisMenu.min.js )
+  config.assets.precompile += %w( icheck.min.js )
+  config.assets.precompile += %w( sparkline-index.js )
+  config.assets.precompile += %w( homer.js )
+  config.assets.precompile += %w( jquery.flot.js )
+  config.assets.precompile += %w( jquery.flot.resize.js )
+  config.assets.precompile += %w( jquery.flot.pie.js )
+  config.assets.precompile += %w( curvedLines.js )
+  config.assets.precompile += %w( jquery.flot.spline.js )
+  config.assets.precompile += %w( jquery.peity.min.js )
+  config.assets.precompile += %w( charts.js )
+
+  #css
+  config.assets.precompile += %w( homer/font-awesome.css )
+  config.assets.precompile += %w( homer/metisMenu.css )
+  config.assets.precompile += %w( homer/animate.css )
+  config.assets.precompile += %w( homer/bootstrap.css )
+  config.assets.precompile += %w( homer/pe-icon-7-stroke.css )
+  config.assets.precompile += %w( homer/helper.css )
+  config.assets.precompile += %w( homer/homer-style.css )
+
+
 end
