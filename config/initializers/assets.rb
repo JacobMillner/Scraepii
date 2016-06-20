@@ -37,13 +37,13 @@ Rails.application.config.assets.precompile += %w( jquery.peity.min.js )
 Rails.application.config.assets.precompile += %w( charts.js )
 
 #css
-Rails.application.config.assets.precompile += %w( homer/font-awesome.css )
-Rails.application.config.assets.precompile += %w( homer/metisMenu.css )
-Rails.application.config.assets.precompile += %w( homer/animate.css )
-Rails.application.config.assets.precompile += %w( homer/bootstrap.css )
-Rails.application.config.assets.precompile += %w( homer/pe-icon-7-stroke.css )
-Rails.application.config.assets.precompile += %w( homer/helper.css )
-Rails.application.config.assets.precompile += %w( homer/homer-style.css )
+Rails.application.config.assets.precompile += %w( font-awesome.css )
+Rails.application.config.assets.precompile += %w( metisMenu.css )
+Rails.application.config.assets.precompile += %w( animate.css )
+Rails.application.config.assets.precompile += %w( bootstrap.css )
+Rails.application.config.assets.precompile += %w( pe-icon-7-stroke.css )
+Rails.application.config.assets.precompile += %w( helper.css )
+Rails.application.config.assets.precompile += %w( homer-style.css )
 
 
 # Add additional assets to the asset load path
