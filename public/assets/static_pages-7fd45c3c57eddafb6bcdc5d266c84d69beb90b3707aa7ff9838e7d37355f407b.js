@@ -1,0 +1,1 @@
+(function(){var t;t=function(){},$(document).ready(t),$(document).on("turbolinks:load",t)}).call(this);
