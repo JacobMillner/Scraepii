@@ -14,7 +14,7 @@
 
     <!-- Styles -->
 	<%= stylesheet_link_tag "font-awesome", "metisMenu", "animate", "bootstrap", "pe-icon-7-stroke", "helper", "homer-style" %>
-	
+
 </head>
 <body class="landing-page">
 
@@ -45,8 +45,8 @@
                 <li><a class="page-scroll" page-scroll href="#pricing">Pricing </a></li>
                 <li><a class="page-scroll" page-scroll href="#clients">Clients </a></li>
                 <li><a class="page-scroll" page-scroll href="#contact">Contact</a></li>
-				<li><a href="uptik_index.html">Login</a></li>
-				<li><a href="uptik_index.html">Register</a></li>
+				<li><%= link_to( "Login", :controller => "home", :action => "index") %></li>
+				<li><li><%= link_to( "Register", :controller => "home", :action => "index") %></li>
             </ul>
         </div>
     </div>
@@ -556,10 +556,10 @@
 </section>
 
 <!-- Vendor scripts -->
-<%= javascript_include_tag "jquery.min", "jquery-ui.min", "jquery.slimscroll.min", "bootstrap.min", "metisMenu.min", "icheck.min", "sparkline-index", "homer", "static_pages" %> 
+<%= javascript_include_tag "jquery.min", "jquery-ui.min", "jquery.slimscroll.min", "bootstrap.min", "metisMenu.min", "icheck.min", "sparkline-index", "homer", "static_pages" %>
 <!-- Local script for menu handle -->
 <!-- It can be also directive -->
-<script> 
+<script>
   var ready;
   ready = function() {
     $('a.page-scroll').bind('click', function(event) {
@@ -569,10 +569,10 @@
                }, 500);
                event.preventDefault();
            });
-   
+
            $('body').scrollspy({
                target: '.navbar-fixed-top',
-               offset: 80     
+               offset: 80
            });
   };
   $(document).ready(ready);

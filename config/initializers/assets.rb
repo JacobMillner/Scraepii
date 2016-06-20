@@ -18,7 +18,6 @@ Rails.application.config.assets.precompile += %w( datagrid.css )
 Rails.application.config.assets.precompile += %w( home.css )
 Rails.application.config.assets.precompile += %w( static_pages.coffee )
 
-
 #homer theme
 #JS
 Rails.application.config.assets.precompile += %w( jquery-ui.min.js )
@@ -29,6 +28,14 @@ Rails.application.config.assets.precompile += %w( metisMenu.min.js )
 Rails.application.config.assets.precompile += %w( icheck.min.js )
 Rails.application.config.assets.precompile += %w( sparkline-index.js )
 Rails.application.config.assets.precompile += %w( homer.js )
+Rails.application.config.assets.precompile += %w( jquery.flot.js )
+Rails.application.config.assets.precompile += %w( jquery.flot.resize.js )
+Rails.application.config.assets.precompile += %w( jquery.flot.pie.js )
+Rails.application.config.assets.precompile += %w( curvedLines.js )
+Rails.application.config.assets.precompile += %w( jquery.flot.spline.js )
+Rails.application.config.assets.precompile += %w( jquery.peity.min.js )
+Rails.application.config.assets.precompile += %w( charts.js )
+
 #css
 Rails.application.config.assets.precompile += %w( homer/font-awesome.css )
 Rails.application.config.assets.precompile += %w( homer/metisMenu.css )
