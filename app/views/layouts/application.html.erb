@@ -223,7 +223,10 @@
 
         <ul class="nav" id="side-menu">
             <li class="active">
-              <%= link_to "Dashboard", home_index_path, :class => "nav-label" %> <span class="label label-success pull-right">v.1</span> </a>
+               <%= link_to home_index_path do %>
+                 <span class="nav-label">Dashboard</span>
+                 <span class="label label-success pull-right">v.1</span>
+               <% end %>
             </li>
 
 
@@ -255,7 +258,10 @@
                 </ul>
             </li>
             <li>
-              <%= link_to "Screener Sandbox", datum_grids_path , :class => "nav-label" %><span class ="fa arrow"></span>
+              <%= link_to datum_grids_path do %>
+                <span class="nav-label"> Screener Sandbox </span>
+                <span class="label label-success pull-right">Special</span>
+              <% end %>
             </li>
             <li>
                 <a href="#"><span class="nav-label">Social</span><span class="fa arrow"></span> </a>
@@ -393,7 +399,7 @@
     </div>
 
     <!-- Footer-->
-    <footer class="footer">
+    <footer class="fixed-footer">
         <span class="pull-right">
           Sample Text
         </span>
