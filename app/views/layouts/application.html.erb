@@ -13,14 +13,13 @@
     <!--<link rel="shortcut icon" type="image/ico" href="favicon.ico" />-->
 
     <!-- styles -->
-    <%= stylesheet_link_tag "font-awesome", "metisMenu", "animate", "bootstrap", "pe-icon-7-stroke", "helper", "homer-style" %>
+    <%= stylesheet_link_tag "metisMenu", "animate", "bootstrap", "helper", "homer-style" %>
 
     <%= csrf_meta_tags %>
 </head>
 <body class="fixed-navbar fixed-sidebar">
   <%= yield(:page_stylesheet) if content_for?(:page_stylesheet) %>
   <%= yield(:page_javascript) if content_for?(:page_javascript) %>
-  <%= evil_icons_sprite %>
 <!-- Simple splash screen-->
 <div class="splash"> <div class="splash-title"><h1>Uptik</h1><p> Placeholder title or catch phrase... </p><div class="spinner"> <div class="rect1"></div> <div class="rect2"></div> <div class="rect3"></div> <div class="rect4"></div> <div class="rect5"></div> </div> </div> </div>
 <!--[if lt IE 7]>
@@ -66,7 +65,7 @@
             <ul class="nav navbar-nav no-borders">
                 <li class="dropdown">
                   <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                        <i class="pe-7s-speaker"></i>
+                    <%= fa_icon "camera-retro" %>
                     </a>
                     <ul class="dropdown-menu hdropdown notification animated flipInX">
                         <li>

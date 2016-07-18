@@ -23,18 +23,12 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-# twitter bootstrap css & javascript toolkit
-gem 'twitter-bootswatch-rails', '~> 3.3.4'
-
-# twitter bootstrap helpers gem, e.g., alerts etc...
-gem 'twitter-bootswatch-rails-helpers'
-
 #ruby racer!
 gem 'therubyracer'
 
 gem 'mechanize'
 
-gem 'evil_icons'
+gem "font-awesome-rails"
 
 gem 'chartkick'
 

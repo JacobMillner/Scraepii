@@ -1,3 +1,0 @@
-// Darkly
-// Bootswatch
-// bootswatch.js
